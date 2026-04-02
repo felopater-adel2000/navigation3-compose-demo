@@ -24,4 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "navigation3"
 include(":app")
- 
+include(":BaseModule")
