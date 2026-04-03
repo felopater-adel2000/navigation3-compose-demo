@@ -1,4 +1,4 @@
-package com.example.basemodule
+package com.example.basemodule.navigation
 
 import androidx.compose.runtime.staticCompositionLocalOf
 

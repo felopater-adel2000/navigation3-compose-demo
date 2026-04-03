@@ -1,4 +1,4 @@
-package com.example.homemodule
+package com.example.homemodule.a_navigation
 
 import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavKey

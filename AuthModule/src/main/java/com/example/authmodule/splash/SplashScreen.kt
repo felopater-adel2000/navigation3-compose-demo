@@ -8,8 +8,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.authmodule.AuthNavModule
-import com.example.basemodule.LocalNavController3
+import com.example.basemodule.navigation.LocalNavController3
 
 @Composable
 fun SplashScreen() {
@@ -29,7 +28,7 @@ fun SplashScreen() {
 
             Button(onClick = {
                 // Navigate to the next screen, e.g., LoginScreen
-                navController.navigate("com.example.authmodule.AuthNavModule\$LoginScreen")
+                navController.navigate("com.example.authmodule.a_navigation.AuthNavModule\$LoginScreen")
             }) {
                 Text(text = "Go to Login")
             }

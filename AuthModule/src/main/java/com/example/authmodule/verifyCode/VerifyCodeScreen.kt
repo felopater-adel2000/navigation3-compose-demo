@@ -8,8 +8,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.authmodule.AuthNavModule
-import com.example.basemodule.LocalNavController3
+import com.example.authmodule.a_navigation.AuthNavModule
+import com.example.basemodule.navigation.LocalNavController3
 
 
 @Composable

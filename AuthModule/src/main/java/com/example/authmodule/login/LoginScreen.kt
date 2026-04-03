@@ -14,8 +14,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.authmodule.AuthNavModule
-import com.example.basemodule.LocalNavController3
+import com.example.basemodule.navigation.LocalNavController3
 
 @Composable
 fun LoginScreen() {
@@ -49,7 +48,7 @@ fun LoginScreen() {
                 // Navigate to the next screen, e.g., LoginScreen
                 //navController.navigate(AuthNavModule.VerifyCodeScreen(phoneNumber))
                 navController.navigateWithDeepLink(
-                    "com.example.authmodule.AuthNavModule\$VerifyCodeScreen",
+                    "com.example.authmodule.a_navigation.AuthNavModule\$VerifyCodeScreen",
                     phoneNumber
                 )
             }) {

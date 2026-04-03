@@ -1,12 +1,10 @@
-package com.example.authmodule
+package com.example.authmodule.a_navigation
 
-import androidx.compose.runtime.Composable
 import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavKey
 import com.example.authmodule.login.LoginScreen
 import com.example.authmodule.splash.SplashScreen
 import com.example.authmodule.verifyCode.VerifyCodeScreen
-import com.example.basemodule.NavModuleKey
 
 
 fun EntryProviderScope<NavKey>.authModuleEntryProvider() {

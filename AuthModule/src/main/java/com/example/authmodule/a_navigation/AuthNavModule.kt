@@ -1,7 +1,6 @@
-package com.example.authmodule
+package com.example.authmodule.a_navigation
 
-import androidx.navigation3.runtime.NavKey
-import com.example.basemodule.NavModuleKey
+import com.example.basemodule.navigation.NavModuleKey
 import kotlinx.serialization.Serializable
 
 
