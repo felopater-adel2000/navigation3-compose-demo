@@ -45,12 +45,7 @@ fun LoginScreen() {
 
 
             Button(onClick = {
-                // Navigate to the next screen, e.g., LoginScreen
-                //navController.navigate(AuthNavModule.VerifyCodeScreen(phoneNumber))
-                navController.navigateWithDeepLink(
-                    "com.example.authmodule.a_navigation.AuthNavModule\$VerifyCodeScreen",
-                    phoneNumber
-                )
+
             }) {
                 Text(text = "Go to Verify Code")
             }

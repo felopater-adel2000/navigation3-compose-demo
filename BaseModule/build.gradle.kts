@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.jetbrains.kotlin.serialization)
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -62,4 +63,23 @@ dependencies {
     api(libs.androidx.material3.adaptive.navigation3)
     api(libs.kotlinx.serialization.core)
     api(libs.kotlin.reflection)
+
+
+    // Koin BOM
+    api(platform("io.insert-koin:koin-bom:4.2.0"))
+    // Core
+    api("io.insert-koin:koin-core")
+    // Android
+    api("io.insert-koin:koin-android")
+    // Compose
+    api("io.insert-koin:koin-androidx-compose")
+    api("io.insert-koin:koin-compose")
+    api("io.insert-koin:koin-compose-viewmodel")
+    // Ktor
+    api("io.insert-koin:koin-ktor")
+    // Testing
+    testFixturesApi("io.insert-koin:koin-test")
+    // koin Annotation
+    api("io.insert-koin:koin-annotations:2.3.1")
+    //ksp("io.insert-koin:koin-ksp-compiler:2.3.1")
 }

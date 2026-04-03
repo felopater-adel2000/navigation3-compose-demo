@@ -29,8 +29,6 @@ fun VerifyCodeScreen(args: AuthNavModule.VerifyCodeScreen) {
             Text(text = "Verif Code Screen with Mobile: ${args.phoneNumber}")
 
             Button(onClick = {
-                // Navigate to the next screen, e.g., LoginScreen
-                navController.navigateWithDeepLink("com.example.homemodule.HomeNavModule\$VisitsScreen")
             }) {
                 Text(text = "Go to Home")
             }
