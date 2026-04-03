@@ -14,7 +14,7 @@ sealed interface HomeNavModule : NavModuleKey {
     }
 
     @Serializable
-    class MapScreen : HomeNavModule {
+    class MapsScreen : HomeNavModule {
         companion object {
 
         }
