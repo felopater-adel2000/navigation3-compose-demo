@@ -7,6 +7,31 @@ import kotlinx.serialization.Serializable
 sealed interface HomeNavModule : NavModuleKey {
 
     @Serializable
-    object VisitsScreen : HomeNavModule
+    class VisitsScreen : HomeNavModule {
+        companion object {
+
+        }
+    }
+
+    @Serializable
+    class MapScreen : HomeNavModule {
+        companion object {
+
+        }
+    }
+
+    @Serializable
+    class ClientsScreen : HomeNavModule {
+        companion object {
+
+        }
+    }
+
+    @Serializable
+    class ProfileScreen : HomeNavModule {
+        companion object {
+
+        }
+    }
 
 }

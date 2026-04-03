@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Navigation3Theme {
-                val backStack = rememberNavBackStack(AuthNavModule.SplashScreen)
+                val backStack = rememberNavBackStack(AuthNavModule.SplashScreen())
                 CompositionLocalProvider(
                     LocalNav3Controller provides Nav3ControllerImpl(backStack)
                 ) {

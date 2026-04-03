@@ -7,19 +7,23 @@ import kotlinx.serialization.Serializable
 
 sealed interface AuthNavModule : NavModuleKey {
     @Serializable
-    data object SplashScreen : AuthNavModule {
-        fun toLoginScreen() = LoginScreen
+    class SplashScreen : AuthNavModule {
+        companion object {
+            fun toLoginScreen() = LoginScreen()
 
-        fun toVisitsScreen() = NavModuleKey.createInstance(DeepLinkConstant.VISITS_SCREEN)
+            fun toVisitsScreen() = NavModuleKey.createInstance(DeepLinkConstant.VISITS_SCREEN)
+        }
     }
 
     @Serializable
-    data object LoginScreen : AuthNavModule {
-        fun toVerifyCodeScreen(phoneNumber: String) = VerifyCodeScreen(phoneNumber)
+    class LoginScreen : AuthNavModule {
+        companion object {
+            fun toVerifyCodeScreen(phoneNumber: String) = VerifyCodeScreen(phoneNumber)
+        }
     }
 
     @Serializable
-    data class VerifyCodeScreen(val phoneNumber: String) : AuthNavModule {
+    class VerifyCodeScreen(val phoneNumber: String) : AuthNavModule {
         companion object {
             fun toVisitsScreen() = NavModuleKey.createInstance(DeepLinkConstant.VISITS_SCREEN)
         }
