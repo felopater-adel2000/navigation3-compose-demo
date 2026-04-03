@@ -12,8 +12,8 @@ import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
 import com.example.authmodule.a_navigation.AuthNavModule
 import com.example.authmodule.a_navigation.authModuleEntryProvider
-import com.example.basemodule.navigation.LocalNavController3
-import com.example.basemodule.navigation.NavController3Impl
+import com.example.basemodule.navigation.LocalNav3Controller
+import com.example.basemodule.navigation.Nav3ControllerImpl
 import com.example.homemodule.a_navigation.homeModuleEntryProvider
 import com.example.navigation3.ui.theme.Navigation3Theme
 
@@ -25,7 +25,7 @@ class MainActivity : ComponentActivity() {
             Navigation3Theme {
                 val backStack = rememberNavBackStack(AuthNavModule.SplashScreen)
                 CompositionLocalProvider(
-                    LocalNavController3 provides NavController3Impl(backStack)
+                    LocalNav3Controller provides Nav3ControllerImpl(backStack)
                 ) {
 
                     NavDisplay(

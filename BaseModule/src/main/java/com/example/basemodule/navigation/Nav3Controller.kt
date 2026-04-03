@@ -2,7 +2,7 @@ package com.example.basemodule.navigation
 
 import androidx.compose.runtime.staticCompositionLocalOf
 
-interface NavController3 {
+interface Nav3Controller {
 
     fun navigate(key: NavModuleKey)
 
@@ -11,6 +11,6 @@ interface NavController3 {
     fun popBackStack()
 }
 
-val LocalNavController3 = staticCompositionLocalOf<NavController3> {
+val LocalNav3Controller = staticCompositionLocalOf<Nav3Controller> {
     error("No NavController3 provided")
 }

@@ -3,7 +3,7 @@ package com.example.basemodule.navigation
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
 
-class NavController3Impl(private val backStack: NavBackStack<NavKey>) : NavController3 {
+class Nav3ControllerImpl(private val backStack: NavBackStack<NavKey>) : Nav3Controller {
 
     override fun navigate(key: NavModuleKey) {
         backStack.add(key)

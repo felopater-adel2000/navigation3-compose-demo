@@ -8,12 +8,12 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.basemodule.navigation.LocalNavController3
+import com.example.basemodule.navigation.LocalNav3Controller
 
 @Composable
 fun VisitsScreen() {
 
-    val navController = LocalNavController3.current
+    val navController = LocalNav3Controller.current
 
     Scaffold(
         modifier = Modifier.fillMaxSize()

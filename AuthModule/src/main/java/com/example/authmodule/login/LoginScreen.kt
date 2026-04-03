@@ -14,12 +14,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.example.basemodule.navigation.LocalNavController3
+import com.example.basemodule.navigation.LocalNav3Controller
 
 @Composable
 fun LoginScreen() {
 
-    val navController = LocalNavController3.current
+    val navController = LocalNav3Controller.current
 
     var phoneNumber by remember { mutableStateOf("") }
 
