@@ -10,21 +10,22 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.basemodule.base.BaseScreen
 import com.example.basemodule.navigation.LocalNav3Controller
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun SplashScreen(
-    viewModel: SplashViewModel = koinViewModel()
+    /*viewModel: SplashViewModel = koinViewModel()*/
 ) {
-    BaseScreen(viewModel) {
+   /* BaseScreen(viewModel) {
         val viewState by viewModel.viewState.collectAsState()
         SplashContent(
             viewState = viewState,
             onAction = viewModel::onAction
         )
-    }
+    }*/
 }
 
 

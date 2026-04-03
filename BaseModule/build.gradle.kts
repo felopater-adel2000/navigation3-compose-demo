@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.jetbrains.kotlin.serialization)
-    id("com.google.devtools.ksp")
+    alias(libs.plugins.jetbrains.kotlin) apply false
 }
 
 android {
@@ -84,7 +84,6 @@ dependencies {
     testFixturesApi("io.insert-koin:koin-test")
     // koin Annotation
     api("io.insert-koin:koin-annotations:2.3.1")
-    ksp("io.insert-koin:koin-ksp-compiler:2.3.1")
 
     testFixturesApi("io.mockk:mockk:1.14.9")
     testFixturesApi("io.mockk:mockk-android:1.14.9")
