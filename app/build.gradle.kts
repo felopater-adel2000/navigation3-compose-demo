@@ -2,7 +2,6 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.jetbrains.kotlin.serialization)
-
     id("com.google.devtools.ksp")
 }
 
@@ -41,6 +40,10 @@ android {
         compose = true
         buildConfig = true
     }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.15"
+    }
 }
 
 dependencies {
@@ -63,5 +66,6 @@ dependencies {
     implementation(project(":BaseModule"))
     implementation(project(":AuthModule"))
     implementation(project(":HomeModule"))
+
 
 }

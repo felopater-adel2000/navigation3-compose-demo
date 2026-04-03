@@ -57,4 +57,9 @@ dependencies {
 
     implementation(project(":BaseModule"))
     testImplementation(testFixtures(project(":BaseModule")))
+    ksp("io.insert-koin:koin-ksp-compiler:2.3.1")
+}
+
+ksp {
+    arg("KOIN_CONFIG_CHECK","true")
 }

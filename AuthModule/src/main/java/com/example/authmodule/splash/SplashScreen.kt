@@ -17,15 +17,15 @@ import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun SplashScreen(
-    /*viewModel: SplashViewModel = koinViewModel()*/
+    viewModel: SplashViewModel = koinViewModel()
 ) {
-   /* BaseScreen(viewModel) {
+    BaseScreen(viewModel) {
         val viewState by viewModel.viewState.collectAsState()
         SplashContent(
             viewState = viewState,
             onAction = viewModel::onAction
         )
-    }*/
+    }
 }
 
 
@@ -49,13 +49,13 @@ private fun SplashContent(
             Text(text = "Splash Screen")
 
             Button(
-                onClick = {  }
+                onClick = { onAction(SplashAction.OnLoginClicked) }
             ) {
                 Text(text = "Go to Login")
             }
 
             Button(
-                onClick = {  }
+                onClick = { onAction(SplashAction.OnVisitsClicked) }
             ) {
                 Text(text = "Go to Visits")
             }

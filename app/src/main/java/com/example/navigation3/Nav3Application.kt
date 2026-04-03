@@ -1,13 +1,22 @@
 package com.example.navigation3
 
 import android.app.Application
-import com.example.navigation3.di.KoinApplication
+import android.util.Log
+import com.example.authmodule.di.authDI
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.GlobalContext.startKoin
 
 class Nav3Application : Application() {
     override fun onCreate() {
         super.onCreate()
-        /*KoinApplication().startKoin {
+        Log.d("TAG", "onCreate: ")
 
-        }*/
+
+        startKoin {
+            androidLogger()
+            androidContext(this@Nav3Application)
+            authDI()
+        }
     }
 }

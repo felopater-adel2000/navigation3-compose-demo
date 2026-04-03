@@ -80,12 +80,9 @@ dependencies {
     api("io.insert-koin:koin-compose-viewmodel")
     // Ktor
     api("io.insert-koin:koin-ktor")
-    // Testing
-    testFixturesApi("io.insert-koin:koin-test")
-    // koin Annotation
-    api("io.insert-koin:koin-annotations:2.3.1")
 
     testFixturesApi("io.mockk:mockk:1.14.9")
     testFixturesApi("io.mockk:mockk-android:1.14.9")
     testFixturesApi("io.mockk:mockk-agent:1.14.9")
+    testFixturesApi("io.insert-koin:koin-test")
 }
