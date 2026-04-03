@@ -19,4 +19,5 @@ fun EntryProviderScope<NavKey>.authModuleEntryProvider() {
     entry<AuthNavModule.VerifyCodeScreen> { args ->
         VerifyCodeScreen(args)
     }
+
 }

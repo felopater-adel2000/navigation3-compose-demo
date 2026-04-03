@@ -3,7 +3,9 @@ package com.example.authmodule.splash
 import com.example.basemodule.base.BaseViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import org.koin.core.annotation.KoinViewModel
 
+@KoinViewModel
 class SplashViewModel : BaseViewModel() {
 
     private val _viewState = MutableStateFlow(SplashViewState())

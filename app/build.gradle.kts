@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.jetbrains.kotlin.serialization)
+    alias(libs.plugins.jetbrains.kotlin)
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -37,6 +39,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -60,4 +63,5 @@ dependencies {
     implementation(project(":BaseModule"))
     implementation(project(":AuthModule"))
     implementation(project(":HomeModule"))
+    ksp("io.insert-koin:koin-ksp-compiler:2.3.1")
 }
