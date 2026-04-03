@@ -9,7 +9,9 @@ sealed interface SplashDirections : ScreenDirection {
     object NavigateToLogin : SplashDirections {
         override fun execute(controller: Nav3Controller) {
            val direction = AuthNavModule.SplashScreen.toLoginScreen()
-            controller.navigate(direction)
+            controller.navigate(direction) {
+                popUpTo(AuthNavModule.SplashScreen::class.java, inclusive = true)
+            }
         }
     }
 

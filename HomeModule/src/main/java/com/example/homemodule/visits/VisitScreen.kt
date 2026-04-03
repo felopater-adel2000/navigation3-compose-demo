@@ -8,7 +8,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.example.basemodule.DeepLinkConstant
 import com.example.basemodule.navigation.LocalNav3Controller
+import com.example.basemodule.navigation.NavModuleKey
 
 @Composable
 fun VisitsScreen() {
@@ -28,6 +30,9 @@ fun VisitsScreen() {
 
             Button(onClick = {
                 // Navigate to the next screen, e.g., LoginScreen
+                navController.navigate(DeepLinkConstant.LOGIN_SCREEN) {
+                        popUpTo(NavModuleKey::class.java, inclusive = true)
+                }
             }) {
                 Text(text = "Logout")
             }

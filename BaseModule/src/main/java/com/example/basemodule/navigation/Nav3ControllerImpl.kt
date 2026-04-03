@@ -1,62 +1,33 @@
 package com.example.basemodule.navigation
 
+import androidx.lifecycle.ViewModelProvider.NewInstanceFactory.Companion.instance
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
 
 class Nav3ControllerImpl(private val backStack: NavBackStack<NavKey>) : Nav3Controller {
 
-    override fun navigate(key: NavModuleKey) {
+    override fun navigate(key: NavModuleKey, optionsBuilder: (Nav3BuilderOptions.() -> Unit)?) {
+        optionsBuilder?.let {
+            val builderOptions = Nav3BuilderOptions(backStack)
+            it(builderOptions)
+        }
         backStack.add(key)
     }
 
-    override fun navigate(keyName: String, vararg args: Any) {
-        val kClass = Class.forName(keyName).kotlin
-
-        // ✅ Ensure class implements NavModuleKey
-        if (!NavModuleKey::class.java.isAssignableFrom(kClass.java)) {
-            throw IllegalArgumentException("Class $keyName is not a NavModuleKey")
+    override fun navigate(keyName: String, vararg args: Any, optionsBuilder: (Nav3BuilderOptions.() -> Unit)?) {
+        optionsBuilder?.let {
+            val builderOptions = Nav3BuilderOptions(backStack)
+            it(builderOptions)
         }
-
-        val instance: NavModuleKey = when {
-            // ✅ Case 1: data object / object
-            kClass.objectInstance != null -> {
-                kClass.objectInstance as NavModuleKey
-            }
-
-            // ✅ Case 2: data class (constructor)
-            else -> {
-                // Find the primary constructor (user-defined params only)
-                // kotlinx.serialization adds a synthetic constructor, so we need to find the one with user params
-                val primaryConstructor = kClass.constructors.find { constructor ->
-                    constructor.parameters.none { param ->
-                        param.name == "serializationConstructorMarker" ||
-                                param.name?.startsWith("seen") == true
-                    }
-                } ?: kClass.constructors.firstOrNull()
-                ?: throw IllegalArgumentException("No constructor found for $keyName")
-
-                // Validate parameters count
-                if (primaryConstructor.parameters.size != args.size) {
-                    throw IllegalArgumentException(
-                        "Constructor of $keyName expects ${primaryConstructor.parameters.size} args (${primaryConstructor.parameters.map { it.name }}), but got ${args.size}"
-                    )
-                }
-
-                try {
-                    primaryConstructor.call(*args) as NavModuleKey
-                } catch (e: Exception) {
-                    throw IllegalArgumentException(
-                        "Failed to create instance of $keyName with args ${args.toList()}",
-                        e
-                    )
-                }
-            }
-        }
-
+        val instance: NavModuleKey = NavModuleKey.createInstance(keyName, *args)
         backStack.add(instance)
     }
 
     override fun popBackStack() {
         backStack.removeLastOrNull()
+    }
+
+    override fun clearBackStack() {
+        backStack.clear()
     }
 }
