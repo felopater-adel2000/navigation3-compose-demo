@@ -1,11 +1,11 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.jetbrains.kotlin.serialization)
 }
 
 android {
-    namespace = "com.example.navigation3"
+    namespace = "com.example.authmodule"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -13,13 +13,10 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.navigation3"
         minSdk = 28
-        targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -58,6 +55,4 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
     implementation(project(":BaseModule"))
-    implementation(project(":AuthModule"))
-    implementation(project(":HomeModule"))
 }
