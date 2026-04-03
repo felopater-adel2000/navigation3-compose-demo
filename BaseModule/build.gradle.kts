@@ -36,6 +36,9 @@ android {
     buildFeatures {
         compose = true
     }
+    testFixtures {
+        enable = true
+    }
 }
 
 dependencies {
@@ -81,5 +84,9 @@ dependencies {
     testFixturesApi("io.insert-koin:koin-test")
     // koin Annotation
     api("io.insert-koin:koin-annotations:2.3.1")
-    //ksp("io.insert-koin:koin-ksp-compiler:2.3.1")
+    ksp("io.insert-koin:koin-ksp-compiler:2.3.1")
+
+    testFixturesApi("io.mockk:mockk:1.14.9")
+    testFixturesApi("io.mockk:mockk-android:1.14.9")
+    testFixturesApi("io.mockk:mockk-agent:1.14.9")
 }

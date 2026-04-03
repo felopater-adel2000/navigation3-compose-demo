@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 
-class BaseViewModel : ViewModel() {
+abstract class BaseViewModel : ViewModel() {
 
     private val _screenDirectionEvent = MutableSharedFlow<ScreenDirection?>()
     val screenDirectionEvent = _screenDirectionEvent.asSharedFlow()

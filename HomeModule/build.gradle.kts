@@ -55,4 +55,5 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 
     implementation(project(":BaseModule"))
+    testImplementation(testFixtures(project(":BaseModule")))
 }
