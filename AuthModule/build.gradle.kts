@@ -2,7 +2,6 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.jetbrains.kotlin.serialization)
-//    alias(libs.plugins.jetbrains.kotlin)
     id("com.google.devtools.ksp")
 }
 
