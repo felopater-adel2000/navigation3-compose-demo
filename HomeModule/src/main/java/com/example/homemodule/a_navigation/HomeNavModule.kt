@@ -10,12 +10,20 @@ sealed interface HomeNavModule : NavModuleKey {
     class VisitsScreen : HomeNavModule {
         companion object {
 
+            fun toMapsScreen() = MapsScreen()
+            fun toClientsScreen() = ClientsScreen()
+            fun toProfileScreen() = ProfileScreen()
+
         }
     }
 
     @Serializable
     class MapsScreen : HomeNavModule {
         companion object {
+
+            fun toVisitsScreen() = VisitsScreen()
+            fun toClientsScreen() = ClientsScreen()
+            fun toProfileScreen() = ProfileScreen()
 
         }
     }
@@ -24,12 +32,20 @@ sealed interface HomeNavModule : NavModuleKey {
     class ClientsScreen : HomeNavModule {
         companion object {
 
+            fun toVisitsScreen() = VisitsScreen()
+            fun toMapsScreen() = MapsScreen()
+            fun toProfileScreen() = ProfileScreen()
+
         }
     }
 
     @Serializable
     class ProfileScreen : HomeNavModule {
         companion object {
+
+            fun toVisitsScreen() = VisitsScreen()
+            fun toMapsScreen() = MapsScreen()
+            fun toClientsScreen() = ClientsScreen()
 
         }
     }
