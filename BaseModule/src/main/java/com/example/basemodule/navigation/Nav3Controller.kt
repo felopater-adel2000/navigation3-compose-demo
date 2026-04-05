@@ -8,7 +8,7 @@ interface Nav3Controller {
 
     fun navigate(keyName: String, vararg args: Any, optionsBuilder: (Nav3BuilderOptions.() -> Unit)? = null)
 
-    fun popBackStack()
+    fun popBackStack(optionsBuilder: (Nav3BuilderOptions.() -> Unit)? = null)
 
     fun clearBackStack()
 }

@@ -23,7 +23,11 @@ class Nav3ControllerImpl(private val backStack: NavBackStack<NavKey>) : Nav3Cont
         backStack.add(instance)
     }
 
-    override fun popBackStack() {
+    override fun popBackStack(optionsBuilder: (Nav3BuilderOptions.() -> Unit)?) {
+        optionsBuilder?.let {
+            val builderOptions = Nav3BuilderOptions(backStack)
+            it(builderOptions)
+        }
         backStack.removeLastOrNull()
     }
 
