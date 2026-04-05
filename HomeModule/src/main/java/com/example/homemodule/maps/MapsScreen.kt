@@ -1,7 +1,49 @@
 package com.example.homemodule.maps
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import com.example.basemodule.base.BaseScreen
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun MapsScreen() {
+fun MapsScreen(
+    viewModel: MapsViewModel = koinViewModel()
+) {
+
+    BaseScreen(viewModel) {
+        val viewState by viewModel.viewState.collectAsState()
+
+        MapsScreenContent(
+            viewState = viewState,
+            onAction = viewModel::onAction
+        )
+    }
+}
+
+@Composable
+private fun MapsScreenContent(
+    viewState: MapsViewState,
+    onAction: (MapsAction) -> Unit,
+) {
+
+    Scaffold(
+        modifier = androidx.compose.ui.Modifier.fillMaxSize(),
+    ) { paddingValues ->
+        Column(
+            modifier = androidx.compose.ui.Modifier.fillMaxSize().padding(paddingValues),
+            verticalArrangement = androidx.compose.foundation.layout.Arrangement.Center,
+            horizontalAlignment = androidx.compose.ui.Alignment.CenterHorizontally
+        ) {
+
+            Text(text = "Maps Screen")
+
+        }
+    }
+
 }
