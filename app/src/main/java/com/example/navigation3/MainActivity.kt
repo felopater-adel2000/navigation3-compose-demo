@@ -21,6 +21,7 @@ import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
 import com.example.authmodule.a_navigation.AuthNavModule
 import com.example.authmodule.a_navigation.authModuleEntryProvider
+import com.example.basemodule.DeepLinkConstant
 import com.example.basemodule.navigation.LocalNav3Controller
 import com.example.basemodule.navigation.Nav3ControllerImpl
 import com.example.homemodule.a_navigation.BottomNavBar
@@ -35,6 +36,11 @@ class MainActivity : ComponentActivity() {
 
         val splashScreenName = AuthNavModule.SplashScreen::class.java.name
         Log.d("MainActivity", "Splash Screen Name: $splashScreenName")
+
+        DeepLinkConstant.initialize(
+            visitsScreenDeepLink = HomeNavModule.VisitsScreen::class.java.name,
+            loginScreenDeepLink = AuthNavModule.LoginScreen::class.java.name
+        )
 
         setContent {
             Navigation3Theme {

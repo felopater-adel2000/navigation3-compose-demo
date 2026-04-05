@@ -11,7 +11,7 @@ sealed interface AuthNavModule : NavModuleKey {
         companion object {
             fun toLoginScreen() = LoginScreen()
 
-            fun toVisitsScreen() = NavModuleKey.createInstance(DeepLinkConstant.VISITS_SCREEN)
+            fun toVisitsScreen() = NavModuleKey.createInstance(DeepLinkConstant.getInstance().visitsScreenDeepLink)
         }
     }
 
@@ -23,9 +23,9 @@ sealed interface AuthNavModule : NavModuleKey {
     }
 
     @Serializable
-    class VerifyCodeScreen(val phoneNumber: String) : AuthNavModule {
+    data class VerifyCodeScreen(val phoneNumber: String) : AuthNavModule {
         companion object {
-            fun toVisitsScreen() = NavModuleKey.createInstance(DeepLinkConstant.VISITS_SCREEN)
+            fun toVisitsScreen() = NavModuleKey.createInstance(DeepLinkConstant.getInstance().visitsScreenDeepLink)
         }
     }
 

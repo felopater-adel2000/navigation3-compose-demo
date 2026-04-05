@@ -1,5 +1,6 @@
 package com.example.homemodule.a_navigation
 
+import com.example.basemodule.DeepLinkConstant
 import com.example.basemodule.navigation.NavModuleKey
 import kotlinx.serialization.Serializable
 
@@ -10,6 +11,7 @@ sealed interface HomeNavModule : NavModuleKey {
     class VisitsScreen : HomeNavModule {
         companion object {
 
+            fun toLoginScreen() = NavModuleKey.createInstance(DeepLinkConstant.getInstance().loginScreenDeepLink)
             fun toMapsScreen() = MapsScreen()
             fun toClientsScreen() = ClientsScreen()
             fun toProfileScreen() = ProfileScreen()

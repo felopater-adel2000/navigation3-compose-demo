@@ -10,7 +10,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import com.example.basemodule.DeepLinkConstant
 import com.example.basemodule.base.BaseScreen
 import com.example.basemodule.navigation.LocalNav3Controller
 import com.example.basemodule.navigation.NavModuleKey
@@ -45,7 +44,7 @@ private fun VisitsContent(
             Text(text = "Visits Screen")
 
             Button(onClick = {
-
+                onAction(VisitsAction.onLogout)
             }) {
                 Text(text = "Logout")
             }

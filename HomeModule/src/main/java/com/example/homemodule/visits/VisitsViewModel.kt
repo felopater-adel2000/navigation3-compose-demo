@@ -11,9 +11,12 @@ class VisitsViewModel : BaseViewModel() {
 
     fun onAction(action: VisitsAction) {
         when (action) {
-
-            else -> {}
+            VisitsAction.onLogout -> navigateToLogin()
         }
+    }
+
+    private fun navigateToLogin() {
+        emitScreenDirection(VisitsDirection.NavigateToLogin)
     }
 
 }

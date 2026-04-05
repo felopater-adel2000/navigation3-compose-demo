@@ -21,8 +21,12 @@ fun VerifyCodeScreen(
     args: AuthNavModule.VerifyCodeScreen,
     viewModel: VerifyViewModel = koinViewModel()
 ) {
-
-    BaseScreen(viewModel) {
+    BaseScreen(
+        viewModel = viewModel,
+        onCreate = {
+            viewModel.onAction(VerifyAction.InitScreen(args.phoneNumber))
+        }
+    ) {
         val viewState by viewModel.viewState.collectAsState()
         VerifyCodeContent(
             viewState = viewState,
