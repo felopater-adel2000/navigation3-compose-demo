@@ -5,19 +5,25 @@ import com.example.basemodule.navigation.Nav3Controller
 
 class DeepLinkConstant private constructor(
     val visitsScreenDeepLink: String,
-    val loginScreenDeepLink: String
+    val loginScreenDeepLink: String,
+    val retailerNameScreenDeepLink: String,
+    val clientsScreenDeepLink: String
 ) {
 
     companion object {
         private var INSTANCE: DeepLinkConstant? = null
         fun initialize(
             visitsScreenDeepLink: String,
-            loginScreenDeepLink: String
+            loginScreenDeepLink: String,
+            retailerNameScreenDeepLink: String,
+            clientsScreenDeepLink: String
         ) {
             if (INSTANCE == null) {
                 INSTANCE = DeepLinkConstant(
                     visitsScreenDeepLink = visitsScreenDeepLink,
-                    loginScreenDeepLink = loginScreenDeepLink
+                    loginScreenDeepLink = loginScreenDeepLink,
+                    retailerNameScreenDeepLink = retailerNameScreenDeepLink,
+                    clientsScreenDeepLink = clientsScreenDeepLink
                 )
             }
         }

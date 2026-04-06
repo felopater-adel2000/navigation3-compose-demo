@@ -19,6 +19,8 @@ import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
+import com.example.acquireretailer.a_navifation.AcquireRetailerNavModule
+import com.example.acquireretailer.a_navifation.acquireRetailerModuleEntryProvider
 import com.example.authmodule.a_navigation.AuthNavModule
 import com.example.authmodule.a_navigation.authModuleEntryProvider
 import com.example.basemodule.DeepLinkConstant
@@ -39,7 +41,9 @@ class MainActivity : ComponentActivity() {
 
         DeepLinkConstant.initialize(
             visitsScreenDeepLink = HomeNavModule.VisitsScreen::class.java.name,
-            loginScreenDeepLink = AuthNavModule.LoginScreen::class.java.name
+            loginScreenDeepLink = AuthNavModule.LoginScreen::class.java.name,
+            retailerNameScreenDeepLink = AcquireRetailerNavModule.RetailerNameScreen::class.java.name,
+            clientsScreenDeepLink = HomeNavModule.ClientsScreen::class.java.name
         )
 
         setContent {
@@ -78,8 +82,8 @@ fun AppNav(
                 onBack = { backStack.removeLastOrNull() },
                 entryProvider = entryProvider {
                     authModuleEntryProvider()
-
                     homeModuleEntryProvider()
+                    acquireRetailerModuleEntryProvider()
                 }
             )
         }

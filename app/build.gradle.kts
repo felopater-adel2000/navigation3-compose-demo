@@ -66,6 +66,7 @@ dependencies {
     implementation(project(":BaseModule"))
     implementation(project(":AuthModule"))
     implementation(project(":HomeModule"))
+    implementation(project(":AcquireRetailer"))
 
 
 }
