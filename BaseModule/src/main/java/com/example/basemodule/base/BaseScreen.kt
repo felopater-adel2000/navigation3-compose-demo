@@ -7,6 +7,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.compose.LocalLifecycleOwner
+import com.example.basemodule.navigation.LocalNav3Controller
 import com.example.basemodule.navigation.Nav3ControllerEventHandler
 
 @Composable
@@ -21,7 +22,11 @@ fun BaseScreen(
     lifecycleOwner: LifecycleOwner = LocalLifecycleOwner.current,
     content: @Composable () -> Unit
 ) {
-    Nav3ControllerEventHandler(viewModel = viewModel)
+    val navController = LocalNav3Controller.current
+    Nav3ControllerEventHandler(
+        viewModel = viewModel,
+        navController = navController
+    )
 
     DisposableEffect(lifecycleOwner) {
         val observer = LifecycleEventObserver { _, event ->
