@@ -1,5 +1,6 @@
 package com.example.basemodule.navigation
 
+import android.os.Bundle
 import androidx.compose.runtime.staticCompositionLocalOf
 
 interface Nav3Controller {
@@ -11,6 +12,8 @@ interface Nav3Controller {
     fun popBackStack(optionsBuilder: (Nav3BuilderOptions.() -> Unit)? = null)
 
     fun clearBackStack()
+
+    fun getResultManager(): NavResultManager
 }
 
 val LocalNav3Controller = staticCompositionLocalOf<Nav3Controller> {

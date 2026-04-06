@@ -1,10 +1,22 @@
 package com.example.basemodule.navigation
 
-import android.util.Log
+import android.os.Bundle
 import androidx.navigation3.runtime.NavBackStack
 import androidx.navigation3.runtime.NavKey
 
-class Nav3BuilderOptions(private val backStack: NavBackStack<NavKey>) {
+class Nav3BuilderOptions(
+    private val backStack: NavBackStack<NavKey>,
+    private val resultManager: NavResultManager
+) {
+
+    fun setResult(key: String, builder: Bundle.() -> Unit) {
+        resultManager.setResult(key, builder)
+
+    }
+
+    fun setResult(key: NavModuleKey, builder: Bundle.() -> Unit) {
+        resultManager.setResult(key.getResultKey(), builder)
+    }
 
     fun popUpTo(navKeyClass: Class<out NavKey>, inclusive: Boolean = false) {
         if (navKeyClass.isInterface) popupToInterface(navKeyClass, inclusive)
