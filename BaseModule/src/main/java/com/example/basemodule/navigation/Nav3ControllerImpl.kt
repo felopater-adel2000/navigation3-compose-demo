@@ -5,7 +5,7 @@ import androidx.navigation3.runtime.NavKey
 
 class Nav3ControllerImpl(
     private val backStack: NavBackStack<NavKey>,
-    private val resultManager: NavResultManager = NavResultManager()
+    private val resultManager: NavResultManager = NavResultManager.getInstance()
 ) : Nav3Controller {
 
     override fun navigate(key: NavModuleKey, optionsBuilder: (Nav3BuilderOptions.() -> Unit)?) {

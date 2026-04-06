@@ -7,7 +7,7 @@ import androidx.compose.runtime.staticCompositionLocalOf
  * Manages navigation results between screens.
  * This allows screens to pass data back when popping the backstack.
  */
-class NavResultManager {
+class NavResultManager private constructor() {
 
     internal val results = mutableMapOf<String, Bundle>()
 
@@ -26,6 +26,18 @@ class NavResultManager {
 
     fun hasResult(key: String): Boolean {
         return results.containsKey(key) && results[key]?.isEmpty == false
+    }
+
+
+    companion object {
+        @Volatile
+        private var INSTANCE: NavResultManager? = null
+
+        fun getInstance(): NavResultManager {
+            return INSTANCE ?: synchronized(this) {
+                INSTANCE ?: NavResultManager().also { INSTANCE = it }
+            }
+        }
     }
 }
 
