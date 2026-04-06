@@ -27,7 +27,6 @@ fun Nav3Controller.observeResult(
     return result
 }
 
-fun NavModuleKey.getResultKey(): String = this::class.java.name
 
 fun NavResultManager.resultListener(
     key: String,
@@ -42,12 +41,3 @@ fun NavResultManager.resultListener(
         }
     }
 }
-
-fun NavResultManager.resultListener(
-    key: NavModuleKey,
-    clearOnReceive: Boolean = true,
-    block: (Bundle) -> Unit
-) {
-    resultListener(key.getResultKey(), clearOnReceive, block)
-}
-

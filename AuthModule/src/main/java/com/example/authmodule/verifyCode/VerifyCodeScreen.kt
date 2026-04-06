@@ -57,6 +57,12 @@ fun VerifyCodeContent(
                 Text(text = "Go to Home")
             }
 
+            Button(
+                onClick = { onAction(VerifyAction.OnErrorOTP) }
+            ) {
+                Text(text = "Show Error")
+            }
+
         }
     }
 }

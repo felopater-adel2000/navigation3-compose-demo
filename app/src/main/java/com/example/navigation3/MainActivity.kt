@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
@@ -61,7 +62,7 @@ class MainActivity : ComponentActivity() {
 fun AppNav(
     backStack: NavBackStack<NavKey> = rememberNavBackStack(AuthNavModule.SplashScreen())
 ) {
-    val navController = rememberSaveable(backStack) { Nav3ControllerImpl(backStack) }
+    val navController = remember(backStack) { Nav3ControllerImpl(backStack) }
 
     CompositionLocalProvider(
         LocalNav3Controller provides navController

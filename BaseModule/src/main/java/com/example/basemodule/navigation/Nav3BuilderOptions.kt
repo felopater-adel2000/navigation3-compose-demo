@@ -14,10 +14,6 @@ class Nav3BuilderOptions(
 
     }
 
-    fun setResult(key: NavModuleKey, builder: Bundle.() -> Unit) {
-        resultManager.setResult(key.getResultKey(), builder)
-    }
-
     fun popUpTo(navKeyClass: Class<out NavKey>, inclusive: Boolean = false) {
         if (navKeyClass.isInterface) popupToInterface(navKeyClass, inclusive)
         else popupToClass(navKeyClass, inclusive)

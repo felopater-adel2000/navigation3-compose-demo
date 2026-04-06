@@ -14,6 +14,8 @@ class VerifyViewModel : BaseViewModel() {
             VerifyAction.onSendCode -> navigateToHome()
 
             is VerifyAction.InitScreen -> initScreen(action.phone)
+
+            VerifyAction.OnErrorOTP -> navigateBackWithError()
         }
     }
 
@@ -27,5 +29,9 @@ class VerifyViewModel : BaseViewModel() {
 
     private fun navigateToHome() {
         emitScreenDirection(VerifyDirection.NavigateToHome)
+    }
+
+    private fun navigateBackWithError() {
+        emitScreenDirection(VerifyDirection.NavigateBackWithError("OTP is not correct"))
     }
 }

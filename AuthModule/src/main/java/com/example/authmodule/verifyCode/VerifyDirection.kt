@@ -13,6 +13,17 @@ sealed interface VerifyDirection : ScreenDirection {
                 popUpTo(AuthNavModule::class.java, inclusive = true)
             }
         }
+    }
+
+    class NavigateBackWithError(val error: String) : VerifyDirection {
+        override fun execute(controller: Nav3Controller) {
+            controller.popBackStack {
+                setResult(AuthNavModule.LoginScreen::class.java.name) {
+                    putString("error", error)
+                }
+                popUpTo(AuthNavModule.VerifyCodeScreen::class.java, inclusive = true)
+            }
+        }
 
     }
 
