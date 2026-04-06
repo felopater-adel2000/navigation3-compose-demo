@@ -1,5 +1,6 @@
 package com.example.acquireretailer.a_navifation
 
+import android.os.Bundle
 import com.example.basemodule.DeepLinkConstant
 import com.example.basemodule.navigation.NavModuleKey
 import kotlinx.serialization.Serializable
@@ -7,10 +8,8 @@ import kotlinx.serialization.Serializable
 sealed interface AcquireRetailerNavModule : NavModuleKey {
 
     @Serializable
-    class RetailerNameScreen : AcquireRetailerNavModule {
-        companion object {
-            fun toRetailerAddressScreen(retailerName: String) = RetailerAddressScreen(retailerName)
-        }
+    data object RetailerNameScreen : AcquireRetailerNavModule {
+        fun toRetailerAddressScreen(retailerName: String) = RetailerAddressScreen(retailerName)
     }
 
 
