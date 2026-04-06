@@ -2,6 +2,8 @@ package com.example.acquireretailer.a_navifation
 
 import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavKey
+import com.example.acquireretailer.retailername.RetailerNameScreen
+import com.example.acquireretailer.marketname.MarketNameScreen
 
 fun EntryProviderScope<NavKey>.acquireRetailerModuleEntryProvider() {
 
@@ -10,7 +12,7 @@ fun EntryProviderScope<NavKey>.acquireRetailerModuleEntryProvider() {
     }
 
     entry<AcquireRetailerNavModule.RetailerAddressScreen> {
-        RetailerAddressScreen(it)
+        MarketNameScreen(it)
     }
 
 }
