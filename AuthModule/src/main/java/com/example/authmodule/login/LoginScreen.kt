@@ -25,7 +25,12 @@ import org.koin.androidx.compose.koinViewModel
 fun LoginScreen(
     viewModel: LoginViewModel = koinViewModel()
 ) {
-    BaseScreen(viewModel) {
+    BaseScreen(
+        viewModel = viewModel,
+        onCreate = {
+
+        }
+    ) {
         val viewState by viewModel.viewState.collectAsState()
         LoginContent(
             viewState = viewState,

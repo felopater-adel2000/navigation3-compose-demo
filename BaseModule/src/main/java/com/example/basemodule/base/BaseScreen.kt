@@ -9,11 +9,12 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.example.basemodule.navigation.LocalNav3Controller
 import com.example.basemodule.navigation.Nav3ControllerEventHandler
+import com.example.basemodule.navigation.NavResultManager
 
 @Composable
 fun BaseScreen(
     viewModel: BaseViewModel,
-    onCreate: () -> Unit = {},
+    onCreate: (NavResultManager) -> Unit = {},
     onStart: () -> Unit = {},
     onResume: () -> Unit = {},
     onPause: () -> Unit = {},
@@ -48,7 +49,7 @@ fun BaseScreen(
                 }
 
                 Lifecycle.Event.ON_CREATE -> {
-                    onCreate()
+                    onCreate(navController.getResultManager())
                 }
 
                 Lifecycle.Event.ON_DESTROY -> {

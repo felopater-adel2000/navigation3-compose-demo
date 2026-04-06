@@ -28,3 +28,26 @@ fun Nav3Controller.observeResult(
 }
 
 fun NavModuleKey.getResultKey(): String = this::class.java.name
+
+fun NavResultManager.resultListener(
+    key: String,
+    clearOnReceive: Boolean = true,
+    block: (Bundle) -> Unit
+) {
+    val result = getResult(key)
+    result?.let {
+        block(it)
+        if (clearOnReceive) {
+            clearResults(key)
+        }
+    }
+}
+
+fun NavResultManager.resultListener(
+    key: NavModuleKey,
+    clearOnReceive: Boolean = true,
+    block: (Bundle) -> Unit
+) {
+    resultListener(key.getResultKey(), clearOnReceive, block)
+}
+
